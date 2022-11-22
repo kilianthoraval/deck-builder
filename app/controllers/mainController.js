@@ -14,6 +14,8 @@ const mainController = {
     }
   },
 
+  // étape 1 : RÉCUPÉRATION D'UNE CARTE
+
   cardPage: async (req, res) => {
     const cardID = req.params.id;
     const card = await dataMapper.getCard(cardID);
@@ -27,7 +29,13 @@ const mainController = {
     else {
         res.status(500).render("500");
     }
-}
+},
+
+  // ÉTAPE 3 : CRÉATION DU DECK
+
+  // addToDeck: (req, res) => {
+
+  // }
 };
 
 module.exports = mainController;

@@ -1,0 +1,19 @@
+<%- include('./partials/header'); %>
+
+<div class="card">
+    <a href="/card/<%= card.id %> ">
+      <img src="/visuals/<%= card.visual_name %>" alt="<%= card.name %> illustration">
+      <p class="cardName"><%= card.name %></p>
+      <p><%= card.name %></p>
+      <p><%= card.element %></p>
+      <p><%= card.level %></p>
+      <p><%= card.value_north %></p>
+      <p><%= card.value_east %></p>
+      <p><%= card.value_south %></p>
+      <p><%= card.value_west %></p>
+    </a>
+    <a class="link--addCard" title="Ajouter au deck" href="#">[ + ]</a>
+  </div>
+
+<%- include('./partials/footer'); %>
+

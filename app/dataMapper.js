@@ -7,12 +7,15 @@ const dataMapper = {
     return result.rows;
   },
 
+
+  // étape 1 : RÉCUPÉRATION D'UNE CARTE
+
   async getCard(id){
-    const sqlQuery = `SELECT * FROM card WHERE id=${id};`;
+    const query = `SELECT * FROM card WHERE id=${id};`;
 
     let result;
     try {
-        const sqlResult = await database.query(sqlQuery);
+        const sqlResult = await database.query(query);
         result = sqlResult.rows[0];
     }
     catch (error) {
@@ -20,7 +23,22 @@ const dataMapper = {
     }
     return result;
 
-}
+},
+
+  // ÉTAPE 2 : RECHERCHE PAR ÉLÉMENT
+
+  async searchElement() {
+    const query = `SELECT * FROM card WHERE element IS NOT NULL`;
+    let result;
+    try {
+        const sqlResult = await database.query(query);
+        result = sqlResult.rows[0];
+    }
+    catch (error) {
+        console.error(error);
+    }
+    return result;
+  }
 
 };
 
