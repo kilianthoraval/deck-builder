@@ -12,7 +12,22 @@ const mainController = {
       console.error(error);
       res.status(500).send(`An error occured with the database :\n${error.message}`);
     }
-  }
+  },
+
+  cardPage: async (req, res) => {
+    const cardID = req.params.id;
+    const card = await dataMapper.getCard(cardID);
+ 
+    if (card) {
+       
+        res.render("card", {
+            card
+        });
+    }
+    else {
+        res.status(500).render("500");
+    }
+}
 };
 
 module.exports = mainController;
