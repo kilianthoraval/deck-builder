@@ -28,7 +28,7 @@ const dataMapper = {
   // ÉTAPE 2 : RECHERCHE PAR ÉLÉMENT
 
   async searchElement() {
-    const query = `SELECT * FROM card WHERE element IS NOT NULL`;
+    const query = `SELECT element FROM card GROUP BY element IS NOT NULL`;
     let result;
     try {
         const sqlResult = await database.query(query);

@@ -6,8 +6,11 @@ const searchController = {
     res.render('search');
   },
   searchByElement :  async(req, res) => {
-    await dataMapper.searchElement();
-   res.render('element');
+    const cardElement = req.query;
+    await dataMapper.searchElement(cardElement);
+   res.render('element',{
+    cardElement
+   });
 
 }
 };
